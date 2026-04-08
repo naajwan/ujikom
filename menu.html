@@ -13,13 +13,20 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="menu.css" />
+
+    <style>
+      .active-filter {
+        outline: 3px solid #000;
+        outline-offset: 2px;
+      }
+    </style>
   </head>
   <body>
-    <header>
+    <header style="position: relative">
       <a href="#" class="logo-link">
         <img src="img/logo.png" alt="Logo A Steak" class="logo-img" />
       </a>
-      <nav>
+      <nav style="position: absolute; left: 50%; transform: translateX(-50%)">
         <ul>
           <li><a href="./index home.html">Home</a></li>
           <li>
@@ -44,15 +51,15 @@
       <h1 class="section-title">MENU LIST</h1>
 
       <div class="menu-filters">
-        <button class="filter-btn">SEMUA</button>
+        <button class="filter-btn active-filter">SEMUA</button>
         <button class="filter-btn">MAKANAN</button>
         <button class="filter-btn">MINUMAN</button>
       </div>
 
       <div class="menu-grid">
-        <div class="menu-card">
+        <div class="menu-card" data-category="makanan">
           <a href="./detail.html"
-            ><img src="img/bbq menu.png" alt="Steak Ayam Saus BBQ"
+            ><img src="img/bbq 35.png" alt="Steak Ayam Saus BBQ"
           /></a>
           <h3>STEAK AYAM SAUS BBQ</h3>
           <p class="desc">
@@ -63,11 +70,11 @@
             <div class="stars">★★★★★</div>
             <span class="rating-score">5.0</span>
           </div>
-          <div class="price">Rp 24.000</div>
+          <div class="price">Rp 35.000</div>
         </div>
 
-        <div class="menu-card">
-          <img src="img/mushroom menu.png" alt="Steak Ayam Mushroom" />
+        <div class="menu-card" data-category="makanan">
+          <img src="img/mushroom 35.png" alt="Steak Ayam Mushroom" />
           <h3>STEAK AYAM MUSHROOM</h3>
           <p class="desc">
             Ayam panggang empuk saus mushroom creamy, lengkap dengan kentang dan
@@ -77,10 +84,10 @@
             <div class="stars">★★★★★</div>
             <span class="rating-score">5.0</span>
           </div>
-          <div class="price">Rp 24.000</div>
+          <div class="price">Rp 35.000</div>
         </div>
 
-        <div class="menu-card">
+        <div class="menu-card" data-category="makanan">
           <img src="img/teriyaki menu.png" alt="Nasi Ayam Teriyaki" />
           <h3>NASI AYAM TERIYKI</h3>
           <p class="desc">
@@ -94,7 +101,7 @@
           <div class="price">Rp 15.000</div>
         </div>
 
-        <div class="menu-card">
+        <div class="menu-card" data-category="makanan">
           <img
             src="img/teriyaki dimsum menu.png"
             alt="Nasi Ayam Teriyaki Dimsum"
@@ -111,7 +118,7 @@
           <div class="price">Rp 35.000</div>
         </div>
 
-        <div class="menu-card">
+        <div class="menu-card" data-category="minuman">
           <img src="img/Teh botol.png" alt="Teh Botol" />
           <h3>TEH BOTOL</h3>
           <p class="desc">
@@ -171,5 +178,34 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const menuCards = document.querySelectorAll(".menu-card");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // 1. Hapus stroke dari semua tombol, lalu tambahkan ke tombol yang diklik
+            filterBtns.forEach((b) => b.classList.remove("active-filter"));
+            btn.classList.add("active-filter");
+
+            // 2. Ambil teks tombol (semua, makanan, atau minuman)
+            const filterValue = btn.innerText.toLowerCase();
+
+            // 3. Sembunyikan atau tampilkan menu sesuai kategorinya
+            menuCards.forEach((card) => {
+              const category = card.getAttribute("data-category");
+
+              if (filterValue === "semua" || category === filterValue) {
+                card.style.display = ""; // Mengembalikan ke tampilan asli CSS (flex/block)
+              } else {
+                card.style.display = "none"; // Sembunyikan item
+              }
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>

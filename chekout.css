@@ -6,11 +6,12 @@
 }
 
 :root {
-  --primary-red: #b30000;
-  --text-dark: #111;
-  --text-light: #555;
-  --bg-input: #dbdbdb; /* Warna abu-abu untuk input dan box */
-  --border-divider: #c2c2c2;
+  --primary-red: #a80000;
+  --text-dark: #000;
+  --text-light: #444;
+  --bg-input: #d9d9d9;
+  --bg-summary: #d9d9d9;
+  --border-color: #bbb;
 }
 
 body {
@@ -32,6 +33,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 ul {
   list-style: none;
 }
@@ -47,7 +49,7 @@ header {
 }
 
 .logo-img {
-  height: 40px;
+  height: 35px;
   width: auto;
 }
 
@@ -65,11 +67,12 @@ nav ul {
 }
 
 .search-box {
-  background-color: #eee;
-  border-radius: 20px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
   padding: 8px 15px;
   display: flex;
   align-items: center;
+  width: 200px;
 }
 
 .search-box input {
@@ -79,6 +82,7 @@ nav ul {
   margin-left: 10px;
   font-family: "Roboto", sans-serif;
   font-size: 13px;
+  width: 100%;
 }
 
 .cart-icon {
@@ -86,14 +90,14 @@ nav ul {
   cursor: pointer;
 }
 
-/* --- CHECKOUT CONTAINER --- */
+/* --- MAIN CHECKOUT CONTAINER --- */
 .checkout-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
   display: flex;
+  justify-content: center;
   gap: 60px;
-  align-items: flex-start;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 40px;
 }
 
 /* --- KOLOM KIRI (FORM) --- */
@@ -103,41 +107,42 @@ nav ul {
 
 .checkout-left h2 {
   font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.input-group {
   margin-bottom: 20px;
 }
 
-.shipping-form .input-group {
-  margin-bottom: 20px;
-}
-
-.shipping-form label {
+.input-group label {
   display: block;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 22px;
-  margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
-.shipping-form input {
+.input-group input {
   width: 100%;
+  padding: 15px;
   background-color: var(--bg-input);
   border: none;
-  padding: 15px 20px;
   border-radius: 8px;
   font-family: "Roboto", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
+  color: #333;
   outline: none;
-  color: var(--text-dark);
 }
 
-.shipping-form input::placeholder {
+.input-group input::placeholder {
   color: #888;
 }
 
+/* Payment Method */
 .payment-title {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
-/* Payment Methods */
 .payment-methods {
   display: flex;
   flex-direction: column;
@@ -154,16 +159,28 @@ nav ul {
   cursor: pointer;
 }
 
-/* Hide default radio button */
-.payment-option input[type="radio"] {
-  display: none;
+.payment-logo {
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Custom Radio Circle */
+.font-qris {
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Custom Radio Button styling */
+.payment-option input[type="radio"] {
+  display: none; /* Sembunyikan radio button bawaan yang jelek */
+}
+
 .custom-radio {
   width: 20px;
   height: 20px;
-  border: 2px solid #555;
+  border: 2px solid #666;
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -173,7 +190,7 @@ nav ul {
   content: "";
   width: 10px;
   height: 10px;
-  background: #555;
+  background: #000;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -181,37 +198,17 @@ nav ul {
   transform: translate(-50%, -50%);
 }
 
-.payment-logo {
-  font-weight: 700;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.font-qris {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 24px;
-  letter-spacing: 2px;
-}
-.text-blue {
-  color: #0078d7;
-} /* Warna biru untuk DANA/Gopay sbg placeholder */
-
 /* --- KOLOM KANAN (SUMMARY) --- */
 .checkout-right {
   flex: 1;
-  min-width: 350px;
 }
 
 .order-summary-box {
-  background-color: var(--bg-input);
+  background-color: var(--bg-summary);
   padding: 30px;
   border-radius: 12px;
-  margin-bottom: 20px;
 }
 
-/* Summary Items */
 .summary-items-list {
   display: flex;
   flex-direction: column;
@@ -221,11 +218,12 @@ nav ul {
 .summary-item {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .item-img {
-  width: 85px;
-  height: 85px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -233,37 +231,34 @@ nav ul {
 .item-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 5px;
 }
 
 .item-details h4 {
   font-size: 20px;
-  line-height: 1.1;
-  margin-bottom: 5px;
 }
 
 .item-details p {
-  font-size: 14px;
-  color: var(--text-dark);
-  margin-bottom: 5px;
+  font-size: 13px;
+  color: var(--text-light);
 }
 
 .item-price {
-  font-weight: 400;
+  font-weight: 500;
+  color: var(--text-dark) !important;
 }
 
-/* Totals Area */
 .summary-divider {
   border: 0;
-  border-top: 1px solid var(--border-divider);
+  border-top: 1px solid var(--border-color);
   margin: 25px 0;
 }
 
 .summary-line {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
-  font-size: 15px;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .summary-line .lbl {
@@ -274,19 +269,29 @@ nav ul {
 .summary-line .small-text {
   font-family: "Roboto", sans-serif;
   font-size: 10px;
-  letter-spacing: 0;
-  vertical-align: middle;
+  color: var(--text-light);
+  margin-left: 5px;
 }
 
 .summary-line .val {
-  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.total-line {
+  margin-bottom: 0;
 }
 
 .total-line .lbl {
-  font-size: 24px;
+  font-size: 22px;
 }
 
-/* Checkout Button */
+.total-line .val {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Tombol Check Out */
 .btn-checkout-red {
   width: 100%;
   background-color: var(--primary-red);
@@ -297,6 +302,7 @@ nav ul {
   font-family: "Bebas Neue", sans-serif;
   font-size: 24px;
   cursor: pointer;
+  margin-top: 25px;
   transition: 0.3s;
 }
 
@@ -304,15 +310,10 @@ nav ul {
   background-color: #8b0000;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
   .checkout-container {
     flex-direction: column;
-  }
-
-  .checkout-left,
-  .checkout-right {
-    width: 100%;
-    flex: none;
+    gap: 40px;
   }
 }
