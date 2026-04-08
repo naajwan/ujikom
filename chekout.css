@@ -1,0 +1,318 @@
+/* --- RESET & VARIABEL --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-red: #b30000;
+  --text-dark: #111;
+  --text-light: #555;
+  --bg-input: #dbdbdb; /* Warna abu-abu untuk input dan box */
+  --border-divider: #c2c2c2;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-dark);
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-bottom: 2px solid #eee;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box {
+  background-color: #eee;
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+}
+
+.cart-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* --- CHECKOUT CONTAINER --- */
+.checkout-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* --- KOLOM KIRI (FORM) --- */
+.checkout-left {
+  flex: 1.2;
+}
+
+.checkout-left h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.shipping-form .input-group {
+  margin-bottom: 20px;
+}
+
+.shipping-form label {
+  display: block;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.shipping-form input {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  outline: none;
+  color: var(--text-dark);
+}
+
+.shipping-form input::placeholder {
+  color: #888;
+}
+
+.payment-title {
+  margin-top: 40px;
+}
+
+/* Payment Methods */
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-input);
+  padding: 15px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Hide default radio button */
+.payment-option input[type="radio"] {
+  display: none;
+}
+
+/* Custom Radio Circle */
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.payment-option input[type="radio"]:checked + .custom-radio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #555;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.payment-logo {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.font-qris {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+.text-blue {
+  color: #0078d7;
+} /* Warna biru untuk DANA/Gopay sbg placeholder */
+
+/* --- KOLOM KANAN (SUMMARY) --- */
+.checkout-right {
+  flex: 1;
+  min-width: 350px;
+}
+
+.order-summary-box {
+  background-color: var(--bg-input);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Summary Items */
+.summary-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.summary-item {
+  display: flex;
+  gap: 15px;
+}
+
+.item-img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-details h4 {
+  font-size: 20px;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.item-details p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.item-price {
+  font-weight: 400;
+}
+
+/* Totals Area */
+.summary-divider {
+  border: 0;
+  border-top: 1px solid var(--border-divider);
+  margin: 25px 0;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.summary-line .lbl {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+}
+
+.summary-line .small-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.summary-line .val {
+  font-family: "Roboto", sans-serif;
+}
+
+.total-line .lbl {
+  font-size: 24px;
+}
+
+/* Checkout Button */
+.btn-checkout-red {
+  width: 100%;
+  background-color: var(--primary-red);
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-checkout-red:hover {
+  background-color: #8b0000;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .checkout-left,
+  .checkout-right {
+    width: 100%;
+    flex: none;
+  }
+}

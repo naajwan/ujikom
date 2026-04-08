@@ -1,0 +1,390 @@
+/* --- RESET & VARIABEL --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-red: #b30000;
+  --primary-yellow: #ffc300;
+  --text-dark: #000000;
+  --text-light: #4a4a4a;
+  --bg-gray: #d9d9d9;
+  --nutri-brown: #8c5600; /* Warna kotak nutrisi */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-dark);
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-bottom: 2px solid #eee; /* Garis bawah header */
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box {
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+}
+
+.cart-icon {
+  color: #b30000; /* Warna emas/kuning kusam untuk ikon cart */
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* --- MAIN PRODUCT DETAIL CONTAINER --- */
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 60px 40px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Kolom 1: Gambar */
+.product-image-col {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-col img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sedikit bayangan agar gambar menonjol */
+}
+
+/* Kolom 2: Info */
+.product-info-col {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-info-col h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.product-info-col .desc {
+  color: var(--text-light);
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--primary-yellow);
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.rating-score {
+  color: var(--text-light);
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.action-group {
+  display: flex; /* Ini yang membuat elemen di dalamnya berjajar ke samping */
+  align-items: center; /* Membuat elemen sejajar rapi di tengah secara vertikal */
+  gap: 20px; /* Jarak antara kotak jumlah dan tombol Add to Cart */
+  margin-top: 20px; /* Opsional: Jarak dari elemen harga di atasnya */
+}
+
+/* Quantity Selector */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  background-color: #e6e6e6;
+  border-radius: 25px;
+  padding: 12px 15px; /* <--- Ubah 8px menjadi 12px */
+}
+
+.qty-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.qty-number {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 15px;
+}
+
+/* Tombol Add to Cart */
+.btn-add-cart {
+  background-color: #b30000;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-add-cart:hover {
+  background-color: #b30000;
+}
+
+/* Kolom 3: Nutrisi */
+.nutrition-col {
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.nutrition-box {
+  background-color: #dadada;
+  padding: 25px;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.nutrition-box h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.nutri-item {
+  background-color: var(--nutri-brown);
+  color: #fff;
+  border-radius: 8px;
+  padding: 15px 10px;
+  text-align: center;
+}
+
+.nutri-value {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.nutri-unit {
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.nutri-label {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.nutri-disclaimer {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 0;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-logo-img {
+  height: 50px;
+  margin-bottom: 15px;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  width: auto;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons i {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.social-icons i:hover {
+  color: var(--primary-yellow);
+}
+
+.footer-col h4 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-col ul li:hover {
+  color: #fff;
+}
+.footer-col p {
+  margin-bottom: 10px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-image-col,
+  .product-info-col,
+  .nutrition-col {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .action-group {
+    display: flex;
+    flex-direction: row; /* Memaksa elemen berbaris ke samping */
+    align-items: center; /* Membuat elemen rata tengah secara vertikal */
+    gap: 20px; /* Jarak antara kotak angka dan tombol merah */
+    margin-top: 20px;
+  }
+
+  .rating {
+    justify-content: center;
+  }
+
+  .nutrition-box h3 {
+    text-align: center;
+  }
+}
+
+/* --- TAMBAHAN ANIMASI HOVER & TRANSPARAN GAMBAR DETAIL --- */
+
+.product-image-col img {
+  /* 1. Transisi agar animasi berjalan halus */
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    background-color 0.3s ease;
+
+  /* 2. Memaksa background menjadi transparan */
+  background-color: transparent !important;
+
+  /* 3. Mematikan bayangan kotak persegi dari kode sebelumnya */
+  box-shadow: none !important;
+
+  /* 4. Memberikan bayangan halus di awal yang mengikuti bentuk gambar (bukan kotak) */
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.product-image-col img:hover {
+  /* 5. Efek membesar 5% dan memancarkan cahaya merah mengikuti lekukan gambar */
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+}

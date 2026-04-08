@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cart - A STEAK</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo-link">
+        <img src="img/logo.png" alt="Logo A Steak" class="logo-img" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="./index home.html">Home</a></li>
+          <li><a href="./menu.html">Menu</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search..." />
+        </div>
+        <i class="fas fa-shopping-cart cart-icon" style="color: #b30000"></i>
+      </div>
+    </header>
+
+    <main class="cart-container">
+      <div class="cart-title-area">
+        <h1>MY CART <span class="cart-count">(7 PRODUCTS)</span></h1>
+      </div>
+
+      <div class="cart-content">
+        <div class="cart-items-col">
+          <div class="cart-header grid-row">
+            <div class="col-product">PRODUK</div>
+            <div class="col-price">HARGA</div>
+            <div class="col-qty">JUMLAH</div>
+            <div class="col-total">TOTAL</div>
+          </div>
+
+          <div class="cart-items-list">
+            <div class="cart-item grid-row" data-price="15000">
+              <div class="col-product">
+                <button class="remove-btn"><i class="fas fa-times"></i></button>
+                <img
+                  src="img/teriyaki.png"
+                  alt="Nasi Ayam Teriyaki"
+                  class="item-img"
+                />
+                <div class="item-info">
+                  <h4>NASI AYAM TERIYAKI</h4>
+                  <p>Minuman Teh Botol</p>
+                </div>
+              </div>
+              <div class="col-price">Rp 15.000</div>
+              <div class="col-qty">
+                <div class="qty-box">
+                  <button class="btn-minus">-</button>
+                  <span class="qty-val">2</span>
+                  <button class="btn-plus">+</button>
+                </div>
+              </div>
+              <div class="col-total item-row-total">Rp 30.000</div>
+            </div>
+
+            <div class="cart-item grid-row" data-price="35000">
+              <div class="col-product">
+                <button class="remove-btn"><i class="fas fa-times"></i></button>
+                <img
+                  src="img/dimsum teriyaki.png"
+                  alt="Nasi Ayam Teriyaki Dimsum"
+                  class="item-img"
+                />
+                <div class="item-info">
+                  <h4>NASI AYAM TERIYAKI DIMSUM</h4>
+                  <p>Minuman Teh Botol</p>
+                </div>
+              </div>
+              <div class="col-price">Rp 35.000</div>
+              <div class="col-qty">
+                <div class="qty-box">
+                  <button class="btn-minus">-</button>
+                  <span class="qty-val">4</span>
+                  <button class="btn-plus">+</button>
+                </div>
+              </div>
+              <div class="col-total item-row-total">Rp 140.000</div>
+            </div>
+
+            <div class="cart-item grid-row" data-price="24000">
+              <div class="col-product">
+                <button class="remove-btn"><i class="fas fa-times"></i></button>
+                <img
+                  src="img/steak ayam bbq.png"
+                  alt="Steak Ayam Saus BBQ"
+                  class="item-img"
+                />
+                <div class="item-info">
+                  <h4>STEAK AYAM SAUS BBQ</h4>
+                  <p>Dengan Ekstra Kentang</p>
+                </div>
+              </div>
+              <div class="col-price">Rp 24.000</div>
+              <div class="col-qty">
+                <div class="qty-box">
+                  <button class="btn-minus">-</button>
+                  <span class="qty-val">1</span>
+                  <button class="btn-plus">+</button>
+                </div>
+              </div>
+              <div class="col-total item-row-total">Rp 24.000</div>
+            </div>
+          </div>
+
+          <div class="cart-actions-bottom">
+            <div class="coupon-group">
+              <input
+                type="text"
+                placeholder="Tambahkan Kode Kupon"
+                class="coupon-input"
+              />
+              <button class="btn-red-small">TERAPKAN KUPON</button>
+            </div>
+            <a href="#" class="clear-cart-link">Hapus Keranjang Belanja</a>
+          </div>
+        </div>
+
+        <div class="order-summary-col">
+          <div class="summary-box">
+            <h3>ORDER SUMARY</h3>
+
+            <div class="summary-line">
+              <span class="lbl">ITEMS</span>
+              <span class="val total-items-val">7</span>
+            </div>
+            <div class="summary-line">
+              <span class="lbl">SHIPPING</span>
+              <span class="val">0</span>
+            </div>
+            <div class="summary-line">
+              <span class="lbl">SUBTOTAL</span>
+              <span class="val subtotal-val">Rp 194.000</span>
+            </div>
+            <div class="summary-line">
+              <span class="lbl">COUPON PROMO</span>
+              <span class="val coupon-val">Rp 10.000</span>
+            </div>
+
+            <hr class="summary-divider" />
+
+            <div class="summary-line total-line">
+              <span class="lbl">TOTAL</span>
+              <span class="val grand-total-val">Rp 184.000</span>
+            </div>
+
+            <a href="./sukses.html">
+              <button class="btn-checkout">GO TO CHECKOUT</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let couponDiscount = 10000;
+        let shippingCost = 0;
+
+        function updateCart() {
+          let subtotal = 0;
+          let totalItems = 0;
+          const items = document.querySelectorAll(".cart-item");
+
+          items.forEach((item) => {
+            const price = parseInt(item.getAttribute("data-price"));
+            const qtyElement = item.querySelector(".qty-val");
+            let qty = parseInt(qtyElement.innerText);
+
+            const rowTotal = price * qty;
+            item.querySelector(".item-row-total").innerText =
+              "Rp " + rowTotal.toLocaleString("id-ID");
+
+            subtotal += rowTotal;
+            totalItems += qty;
+          });
+
+          if (totalItems === 0) {
+            couponDiscount = 0;
+            const couponSpan = document.querySelector(".coupon-val");
+            if (couponSpan) couponSpan.innerText = "Rp 0";
+          }
+
+          let grandTotal = subtotal + shippingCost - couponDiscount;
+          if (grandTotal < 0) grandTotal = 0;
+
+          document.querySelector(".total-items-val").innerText = totalItems;
+          document.querySelector(".subtotal-val").innerText =
+            "Rp " + subtotal.toLocaleString("id-ID");
+          document.querySelector(".grand-total-val").innerText =
+            "Rp " + grandTotal.toLocaleString("id-ID");
+          document.querySelector(".cart-count").innerText =
+            `(${totalItems} PRODUCTS)`;
+        }
+
+        const cartList = document.querySelector(".cart-items-list");
+        if (cartList) {
+          cartList.addEventListener("click", function (e) {
+            if (e.target.classList.contains("btn-plus")) {
+              const qtySpan = e.target.previousElementSibling;
+              qtySpan.innerText = parseInt(qtySpan.innerText) + 1;
+              updateCart();
+            }
+
+            if (e.target.classList.contains("btn-minus")) {
+              const qtySpan = e.target.nextElementSibling;
+              let currentQty = parseInt(qtySpan.innerText);
+              if (currentQty > 1) {
+                qtySpan.innerText = currentQty - 1;
+                updateCart();
+              }
+            }
+
+            const removeBtn = e.target.closest(".remove-btn");
+            if (removeBtn) {
+              const item = removeBtn.closest(".cart-item");
+              item.remove();
+              updateCart();
+            }
+          });
+        }
+
+        const clearCartBtn = document.querySelector(".clear-cart-link");
+        if (clearCartBtn) {
+          clearCartBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (cartList) {
+              cartList.innerHTML = "";
+              updateCart();
+            }
+          });
+        }
+
+        updateCart();
+      });
+    </script>
+  </body>
+</html>

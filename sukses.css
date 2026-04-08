@@ -1,0 +1,117 @@
+/* --- RESET --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  /* Background abu-abu terang agar modal pop-up terlihat menonjol */
+  background-color: #f5f5f5;
+}
+
+/* --- MODAL CONTAINER --- */
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* --- SUCCESS CARD --- */
+.success-card {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  padding: 50px 40px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  /* GANTI URL DI BAWAH INI DENGAN GAMBAR MAKANAN ANDA */
+  /* Menggunakan overlay rgba putih agak transparan agar teks terbaca jelas */
+  background:
+    linear-gradient(rgba(240, 240, 240, 0.4), rgba(240, 240, 240, 0.4)),
+    url("img/dimsum.png") center/cover;
+  overflow: hidden;
+}
+
+/* --- IKON CEKLIS --- */
+.icon-ring {
+  display: inline-block;
+  background-color: #84bf80; /* Hijau muda transparan */
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 25px;
+}
+
+/* Lingkaran hijau tua dalam */
+.icon-circle {
+  background-color: #087e00; /* Hijau tua */
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 32px;
+}
+
+/* --- TEKS --- */
+.success-card h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 32px;
+  color: #000000;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.success-card p {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.5;
+  margin-bottom: 35px;
+  padding: 0 10px;
+}
+
+/* --- TOMBOL --- */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.button-group button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: none;
+}
+
+.btn-red {
+  background-color: #b30000;
+  color: #ffffff;
+}
+
+.btn-red:hover {
+  background-color: #b30000;
+}
+
+.btn-white {
+  background-color: #ffffff;
+  color: #b30000;
+  /* Sedikit bayangan pada tombol putih agar terpisah dari background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white:hover {
+  background-color: #ffffff;
+}

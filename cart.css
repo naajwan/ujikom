@@ -1,0 +1,338 @@
+/* --- RESET & VARIABEL --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-red: #b30000;
+  --text-dark: #222;
+  --text-light: #666;
+  --bg-gray: #dfdfdf;
+  --bg-light-gray: #e8e8e8;
+  --border-color: #ddd;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-dark);
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+.cart-header {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-bottom: 2px solid #eee;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box {
+  background-color: var(--bg-gray);
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+}
+
+.cart-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* --- CART CONTAINER --- */
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.cart-title-area {
+  margin-bottom: 30px;
+}
+
+.cart-title-area h1 {
+  font-size: 42px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-count {
+  font-size: 16px;
+  font-family: "Bebas Neue", sans-serif;
+  color: var(--text-dark);
+  margin-top: 10px; /* Adjusting alignment with large text */
+}
+
+.cart-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* --- KOLOM KIRI (ITEMS) --- */
+.cart-items-col {
+  flex: 2; /* Mengambil ruang 2 bagian */
+}
+
+/* Sistem Grid untuk Baris */
+.grid-row {
+  display: grid;
+  /* Rasio lebar kolom: Produk(Paling lebar), Harga, Jumlah, Total */
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+/* Header Tabel */
+.cart-header {
+  background-color: var(--bg-gray);
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.col-price,
+.col-qty,
+.col-total {
+  text-align: center;
+}
+
+/* Item List */
+.cart-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.col-product {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.remove-btn {
+  background-color: var(--bg-gray);
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.item-info h4 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.item-info p {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.col-price,
+.col-total {
+  font-size: 16px;
+}
+
+/* Box Input Angka */
+.qty-box {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.qty-box button {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.qty-box span {
+  padding: 8px 15px;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+/* Aksi Bawah (Kupon & Hapus) */
+.cart-actions-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.coupon-group {
+  display: flex;
+  gap: 10px;
+}
+
+.coupon-input {
+  background-color: var(--bg-gray);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 220px;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+}
+
+.btn-red-small {
+  background-color: var(--primary-red);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.clear-cart-link {
+  color: #c94040;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* --- KOLOM KANAN (SUMMARY) --- */
+.order-summary-col {
+  flex: 1; /* Mengambil ruang 1 bagian */
+  min-width: 300px;
+}
+
+.summary-box {
+  background-color: var(--bg-gray);
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.summary-box h3 {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.summary-line .lbl {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.summary-line .val {
+  font-weight: 400;
+}
+
+.summary-divider {
+  border: 0;
+  border-top: 1px solid #c0c0c0;
+  margin: 20px 0;
+}
+
+.total-line {
+  font-weight: 700;
+}
+
+.btn-checkout {
+  width: 100%;
+  background-color: var(--primary-red);
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: 0.3s;
+}
+
+.btn-checkout:hover {
+  background-color: #b30000;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .cart-content {
+    flex-direction: column;
+  }
+
+  .order-summary-col {
+    width: 100%;
+  }
+
+  .grid-row {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}

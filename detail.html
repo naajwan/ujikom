@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - A STEAK</title>
+    <link rel="stylesheet" href="./detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo-link">
+            <img src="img/logo.png" alt="Logo A Steak" class="logo-img">
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="./index home.html">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <i class="fas fa-shopping-cart cart-icon"></i>
+        </div>
+    </header>
+
+    <main class="product-container">
+        
+        <div class="product-image-col">
+            <img src="img/steak ayam bbq.png" alt="Steak Ayam Saus BBQ">
+        </div>
+
+        <div class="product-info-col">
+            <h1>STEAK AYAM SAUS BBQ</h1>
+            <p class="desc">Steak ayam filet lembut panggang dengan siraman saus BBQ smokey manis-gurih. Disajikan lengkap bersama kentang goreng dan sayuran segar.</p>
+            
+            <div class="rating">
+                 <div class="stars">★★★★★</div>
+                <span class="rating-score">5.0</span>
+            </div>
+            
+            <div class="price">Rp 24.000</div>
+            
+            <div class="action-group" style="display: flex; align-items: center; gap: 15px;">
+                <div class="quantity-selector">
+                    <button class="qty-btn" style="color: black;" onclick="var el=document.getElementById('qty-val'); var val=parseInt(el.innerText); if(val>1) el.innerText=val-1;">
+                        <i class="fas fa-minus">-</i>
+                    </button>
+                    
+                    <span class="qty-number" id="qty-val">1</span>
+                    
+                    <button class="qty-btn" style="color: black;" onclick="var el=document.getElementById('qty-val'); el.innerText=parseInt(el.innerText)+1;">
+                        <i class="fas fa-plus">+</i>
+                    </button>
+                </div>
+                
+                <a href="./cart.html">
+                    <button class="btn-add-cart">ADD TO CART</button>
+                </a>
+            </div>
+            </div> <div class="nutrition-col">
+            <div class="nutrition-box">
+                <h3>KANDUNGAN NUTRISI</h3>
+                
+                <div class="nutrition-grid">
+                    <div class="nutri-item">
+                        <div class="nutri-value">600<span class="nutri-unit">kkal</span></div>
+                        <div class="nutri-label">Kalori</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-value">30<span class="nutri-unit">g</span></div>
+                        <div class="nutri-label">Lemak</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-value">15<span class="nutri-unit">g</span></div>
+                        <div class="nutri-label">Gula</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-value">700<span class="nutri-unit">mg</span></div>
+                        <div class="nutri-label">Garam</div>
+                    </div>
+                    <div class
