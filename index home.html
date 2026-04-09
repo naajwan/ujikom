@@ -41,6 +41,7 @@
         <a href="cart.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
       </div>
     </header>
+
     <section class="hero">
       <div class="hero-content">
         <h1>
@@ -59,7 +60,12 @@
     </section>
 
     <section class="about">
-      <img src="img/ayam sayur.png" alt="Raw Chicken" class="about-img-left" />
+      <img
+        src="img/ayam sayur.png"
+        alt="Raw Chicken"
+        class="about-img-left"
+        style="width: 350px; height: auto"
+      />
 
       <div class="about-text">
         <h2>A STEAK</h2>
@@ -71,7 +77,12 @@
         </p>
       </div>
 
-      <img src="img/kentang ayam.png" alt="Potatoes" class="about-img-right" />
+      <img
+        src="img/kentang ayam.png"
+        alt="Potatoes"
+        class="about-img-right"
+        style="width: 350px; height: auto"
+      />
     </section>
 
     <section class="recommendation">
@@ -179,7 +190,6 @@
 
         let currentIndex = 0;
 
-        // 1. Layer Belakang (Untuk menahan gambar lama agar tidak ada ruang kosong)
         const bgBase = document.createElement("div");
         bgBase.style.position = "absolute";
         bgBase.style.top = "0";
@@ -191,7 +201,6 @@
         bgBase.style.backgroundImage = `url('${bgImages[0]}')`;
         bgBase.style.zIndex = "0";
 
-        // 2. Layer Depan (Yang akan perlahan memudar menutupi layer belakang)
         const bgSlider = document.createElement("div");
         bgSlider.style.position = "absolute";
         bgSlider.style.top = "0";
@@ -202,7 +211,6 @@
         bgSlider.style.backgroundPosition = "center";
         bgSlider.style.backgroundImage = `url('${bgImages[0]}')`;
         bgSlider.style.zIndex = "0";
-        // HANYA MENGGUNAKAN OPACITY, MENGHILANGKAN TRANSFORM (GESER)
         bgSlider.style.transition = "opacity 1s ease-in-out";
 
         heroSection.insertBefore(bgSlider, heroSection.firstChild);
@@ -211,15 +219,12 @@
         setInterval(() => {
           let nextIndex = (currentIndex + 1) % bgImages.length;
 
-          // Set gambar belakang dengan gambar saat ini
           bgBase.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
 
-          // Ganti gambar depan dengan gambar baru, tapi buat transparan dulu
           bgSlider.style.transition = "none";
           bgSlider.style.opacity = "0";
           bgSlider.style.backgroundImage = `url('${bgImages[nextIndex]}')`;
 
-          // Munculkan gambar baru secara perlahan (efek pudar yang sangat mulus)
           setTimeout(() => {
             bgSlider.style.transition = "opacity 1s ease-in-out";
             bgSlider.style.opacity = "1";
