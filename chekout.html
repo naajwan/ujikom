@@ -12,38 +12,15 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="chekout.css" />
-
-    <style>
-      /* Stroke merah untuk form pengisian */
-      .input-group input:focus {
-        outline: 2px solid #b30000;
-        border-color: transparent;
-      }
-
-      /* Stroke merah untuk kotak payment yang sedang dipilih */
-      .payment-option:has(input[type="radio"]:checked) {
-        outline: 2px solid #b30000;
-      }
-
-      /* Mengubah garis bulat radio menjadi merah */
-      .payment-option input[type="radio"]:checked + .custom-radio {
-        border-color: #b30000 !important;
-      }
-
-      /* Mengubah titik bulat di tengah menjadi merah */
-      .payment-option input[type="radio"]:checked + .custom-radio::after {
-        background: #b30000 !important;
-      }
-    </style>
+    <link rel="stylesheet" href="./chekout.css" />
   </head>
   <body>
-    <header style="position: relative">
+    <header>
       <a href="#" class="logo-link">
         <img src="img/logo.png" alt="Logo A Steak" class="logo-img" />
       </a>
 
-      <nav style="position: absolute; left: 50%; transform: translateX(-50%)">
+      <nav>
         <ul>
           <li><a href="./index home.html">Home</a></li>
           <li><a href="./menu.html">Menu</a></li>
@@ -54,18 +31,18 @@
 
       <div class="header-actions">
         <div class="search-box">
-          <i class="fas fa-search" style="color: #888"></i>
+          <i class="fas fa-search"></i>
           <input type="text" placeholder="Search..." />
         </div>
-        <a href="./cart.html"
-          ><i class="fas fa-shopping-cart cart-icon" style="color: #b30000"></i
-        ></a>
+        <a href="./cart.html">
+          <i class="fas fa-shopping-cart cart-icon"></i>
+        </a>
       </div>
     </header>
 
     <main class="checkout-container">
       <div class="checkout-left">
-        <h2>SHIPING ADDRESS</h2>
+        <h2>SHIPPING ADDRESS</h2>
 
         <form class="shipping-form">
           <div class="input-group">
@@ -196,9 +173,9 @@
           </div>
         </div>
 
-        <a href="./sukses.html"
-          ><button class="btn-checkout-red">CHEK OUT</button></a
-        >
+        <a href="./sukses.html">
+          <button class="btn-checkout-red">CHEK OUT</button>
+        </a>
       </div>
     </main>
   </body>

@@ -40,6 +40,7 @@ ul {
 
 /* --- HEADER --- */
 header {
+  position: relative; /* Dipindah dari HTML */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,6 +52,12 @@ header {
 .logo-img {
   height: 40px;
   width: auto;
+}
+
+nav {
+  position: absolute; /* Dipindah dari HTML */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 nav ul {
@@ -84,6 +91,7 @@ nav ul {
 }
 
 .cart-icon {
+  color: #b30000; /* Dipindah dari HTML */
   font-size: 20px;
   cursor: pointer;
 }
@@ -110,7 +118,7 @@ nav ul {
   font-size: 16px;
   font-family: "Bebas Neue", sans-serif;
   color: var(--text-dark);
-  margin-top: 10px; /* Adjusting alignment with large text */
+  margin-top: 10px;
 }
 
 .cart-content {
@@ -121,13 +129,12 @@ nav ul {
 
 /* --- KOLOM KIRI (ITEMS) --- */
 .cart-items-col {
-  flex: 2; /* Mengambil ruang 2 bagian */
+  flex: 2;
 }
 
 /* Sistem Grid untuk Baris */
 .grid-row {
   display: grid;
-  /* Rasio lebar kolom: Produk(Paling lebar), Harga, Jumlah, Total */
   grid-template-columns: 2.5fr 1fr 1fr 1fr;
   align-items: center;
 }
@@ -141,10 +148,23 @@ nav ul {
   margin-bottom: 20px;
 }
 
+.cart-header .col-product,
+.cart-header .col-price,
+.cart-header .col-qty,
+.cart-header .col-total {
+  font-size: 20px !important; /* Dipindah dari tag style */
+}
+
 .col-price,
 .col-qty,
 .col-total {
   text-align: center;
+}
+
+/* Style Teks Jumlah (Dipindah dari inline JS) */
+.qty-text {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* Item List */
@@ -194,28 +214,12 @@ nav ul {
   font-size: 16px;
 }
 
-/* Box Input Angka */
-.qty-box {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.qty-box button {
-  background: transparent;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.qty-box span {
-  padding: 8px 15px;
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  font-size: 14px;
+/* Pesan Keranjang Kosong (Dipindah dari tag style) */
+.empty-cart-msg {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
 }
 
 /* Aksi Bawah (Kupon & Hapus) */
@@ -241,6 +245,11 @@ nav ul {
   outline: none;
 }
 
+.coupon-input:focus {
+  outline: 2px solid #b30000;
+  border-color: transparent;
+}
+
 .btn-red-small {
   background-color: var(--primary-red);
   color: #fff;
@@ -261,7 +270,7 @@ nav ul {
 
 /* --- KOLOM KANAN (SUMMARY) --- */
 .order-summary-col {
-  flex: 1; /* Mengambil ruang 1 bagian */
+  flex: 1;
   min-width: 300px;
 }
 
@@ -322,7 +331,7 @@ nav ul {
   background-color: #b30000;
 }
 
-/* --- RESPONSIVE --- */
+/* 1. Layar Menengah & Tablet */
 @media (max-width: 992px) {
   .cart-content {
     flex-direction: column;
@@ -334,5 +343,82 @@ nav ul {
 
   .grid-row {
     grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+/* 2. Layar HP Menengah (Mengatur ulang navigasi Header) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  nav {
+    position: static;
+    transform: none;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* 3. Layar HP Kecil (Mengubah Tabel Keranjang menjadi Kartu/Susun agar tidak terpotong) */
+@media (max-width: 576px) {
+  /* Menyembunyikan judul kolom (Produk, Harga, dll) */
+  .cart-header {
+    display: none;
+  }
+
+  /* Mengubah baris grid menjadi susunan kartu */
+  .cart-item.grid-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  /* Membiarkan bagian produk memenuhi lebar layar */
+  .col-product {
+    grid-column: 1 / 3;
+    align-items: flex-start;
+  }
+
+  .col-price {
+    text-align: left;
+  }
+
+  .col-qty {
+    text-align: center;
+  }
+
+  .col-total {
+    text-align: right;
+  }
+
+  .cart-actions-bottom {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .coupon-group {
+    flex-direction: column;
+  }
+
+  .coupon-input {
+    width: 100%;
+  }
+
+  .clear-cart-link {
+    text-align: center;
   }
 }

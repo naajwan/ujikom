@@ -56,6 +56,13 @@ header {
   width: auto;
 }
 
+/* Memindahkan styling posisi nav dari HTML */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 nav ul {
   display: flex;
   gap: 30px;
@@ -65,6 +72,11 @@ nav ul {
 
 nav ul li a.active {
   color: var(--primary-red);
+}
+
+/* Memindahkan font-size icon dropdown dari HTML */
+nav ul li a i {
+  font-size: 10px;
 }
 
 .header-actions {
@@ -82,6 +94,11 @@ nav ul li a.active {
   width: 200px;
 }
 
+/* Memindahkan warna icon pencarian dari HTML */
+.search-box i {
+  color: #888;
+}
+
 .search-box input {
   border: none;
   background: transparent;
@@ -93,7 +110,7 @@ nav ul li a.active {
 }
 
 .cart-icon {
-  color: #d4af37; /* Warna emas kusam */
+  color: #ffc300; /* Warna emas kusam */
   font-size: 20px;
   cursor: pointer;
 }
@@ -134,10 +151,16 @@ nav ul li a.active {
   background-color: #b30000;
 }
 
+/* Styling saat Filter Aktif (Dipindah dari tag <style> HTML) */
+.active-filter {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
 /* Menu Grid */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 Kolom */
+  grid-template-columns: repeat(4, 1fr); /* 4 Kolom Default */
   gap: 30px;
   row-gap: 50px;
 }
@@ -160,6 +183,16 @@ nav ul li a.active {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 15px;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    background-color 0.3s ease;
+  background-color: transparent !important;
+}
+
+.menu-card img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
 }
 
 .menu-card h3 {
@@ -173,7 +206,7 @@ nav ul li a.active {
   color: var(--text-light);
   line-height: 1.4;
   margin-bottom: 10px;
-  flex-grow: 1; /* Mendorong harga ke bawah jika teks pendek */
+  flex-grow: 1;
 }
 
 .rating {
@@ -285,40 +318,59 @@ footer {
   line-height: 1.5;
 }
 
-/* --- RESPONSIVE --- */
+/* 1. Layar Menengah & Tablet (Max Width: 992px) */
 @media (max-width: 992px) {
   .menu-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 Kolom untuk tablet */
   }
 }
 
-@media (max-width: 576px) {
-  .menu-grid {
-    grid-template-columns: 1fr; /* 1 Kolom untuk HP */
-  }
+/* 2. Layar HP Menengah (Max Width: 768px) */
+@media (max-width: 768px) {
   header {
     flex-direction: column;
     gap: 15px;
+    padding: 15px 20px;
+  }
+
+  /* Menormalkan posisi navigasi dari absolute menjadi static */
+  nav {
+    position: static;
+    transform: none;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Membuat tombol filter ke tengah di layar hp */
+  .menu-filters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Merapikan Footer ke tengah untuk HP */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
   }
 }
 
-/* --- TAMBAHAN ANIMASI HOVER MERAH GAMBAR MENU --- */
-
-.menu-card img {
-  /* Transisi halus selama 0.3 detik */
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease,
-    background-color 0.3s ease;
-
-  /* Memastikan background transparan agar bayangan mengikuti bentuk gambar (jika PNG) */
-  background-color: transparent !important;
-}
-
-.menu-card img:hover {
-  /* Efek membesar 5% */
-  transform: scale(1.05);
-
-  /* Efek cahaya merah (drop-shadow) */
-  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+/* 3. Layar HP Sangat Kecil (Max Width: 576px) */
+@media (max-width: 576px) {
+  .menu-grid {
+    grid-template-columns: 1fr; /* 1 Kolom memanjang ke bawah untuk HP */
+  }
 }

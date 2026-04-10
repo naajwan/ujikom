@@ -6,18 +6,21 @@
     <title>Detail Produk - A STEAK</title>
     <link rel="stylesheet" href="./detail.css" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header style="position: relative">
+    <header>
       <a href="#" class="logo-link">
         <img src="img/logo.png" alt="Logo A Steak" class="logo-img" />
       </a>
 
-      <nav style="position: absolute; left: 50%; transform: translateX(-50%)">
+      <nav>
         <ul>
           <li><a href="./index home.html">Home</a></li>
           <li><a href="./menu.html">Menu</a></li>
@@ -31,7 +34,7 @@
           <i class="fas fa-search"></i>
           <input type="text" placeholder="Search..." />
         </div>
-        <i class="fas fa-shopping-cart cart-icon"></i>
+        <a href="./cart.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
       </div>
     </header>
 
@@ -55,42 +58,22 @@
 
         <div class="price">Rp 35.000</div>
 
-        <div
-          class="action-group"
-          style="display: flex; align-items: center; gap: 15px"
-        >
+        <div class="action-group">
           <div class="quantity-selector">
-            <button
-              class="qty-btn"
-              style="color: black"
-              onclick="
-                var el = document.getElementById('qty-val');
-                var val = parseInt(el.innerText);
-                if (val > 1) el.innerText = val - 1;
-              "
-            >
-              <i class="fas fa-minus">-</i>
+            <button class="qty-btn" onclick="kurangiQty()">
+              <i class="fas fa-minus"></i>
             </button>
 
             <span class="qty-number" id="qty-val">1</span>
 
-            <button
-              class="qty-btn"
-              style="color: black"
-              onclick="
-                var el = document.getElementById('qty-val');
-                el.innerText = parseInt(el.innerText) + 1;
-              "
-            >
-              <i class="fas fa-plus">+</i>
+            <button class="qty-btn" onclick="tambahQty()">
+              <i class="fas fa-plus"></i>
             </button>
           </div>
 
-          <a href="./cart.html">
-            <button class="btn-add-cart" onclick="addToCart()">
-              ADD TO CART
-            </button>
-          </a>
+          <button class="btn-add-cart" onclick="addToCart()">
+            ADD TO CART
+          </button>
         </div>
       </div>
 
@@ -123,40 +106,51 @@
         </div>
       </div>
     </main>
-  </body>
 
-  <script>
-    function addToCart() {
-      // 1. Ambil jumlah pesanan dari angka yang dipilih
-      let qtyVal = parseInt(document.getElementById("qty-val").innerText);
-
-      // 2. Data produk yang akan dimasukkan ke keranjang
-      let productItem = {
-        name: "STEAK AYAM SAUS BBQ",
-        desc: "Dengan Ekstra Kentang",
-        price: 35000,
-        qty: qtyVal,
-        image: "img/steak ayam bbq.png", // Pastikan nama file gambar benar
-      };
-
-      // 3. Ambil keranjang lama dari memory browser (jika ada)
-      let cart = JSON.parse(localStorage.getItem("asteak_cart")) || [];
-
-      // 4. Cek apakah barang sudah ada di keranjang, kalau ada tambah jumlahnya saja
-      let existingItemIndex = cart.findIndex(
-        (item) => item.name === productItem.name,
-      );
-      if (existingItemIndex !== -1) {
-        cart[existingItemIndex].qty += productItem.qty;
-      } else {
-        cart.push(productItem);
+    <script>
+      function kurangiQty() {
+        var el = document.getElementById("qty-val");
+        var val = parseInt(el.innerText);
+        if (val > 1) el.innerText = val - 1;
       }
 
-      // 5. Simpan kembali ke memory browser
-      localStorage.setItem("asteak_cart", JSON.stringify(cart));
+      function tambahQty() {
+        var el = document.getElementById("qty-val");
+        el.innerText = parseInt(el.innerText) + 1;
+      }
 
-      // 6. Pindah halaman ke keranjang
-      window.location.href = "./cart.html";
-    }
-  </script>
+      function addToCart() {
+        // 1. Ambil jumlah pesanan dari angka yang dipilih
+        let qtyVal = parseInt(document.getElementById("qty-val").innerText);
+
+        // 2. Data produk yang akan dimasukkan ke keranjang
+        let productItem = {
+          name: "STEAK AYAM SAUS BBQ",
+          desc: "Dengan Ekstra Kentang",
+          price: 35000,
+          qty: qtyVal,
+          image: "img/steak ayam bbq.png",
+        };
+
+        // 3. Ambil keranjang lama dari memory browser (jika ada)
+        let cart = JSON.parse(localStorage.getItem("asteak_cart")) || [];
+
+        // 4. Cek apakah barang sudah ada di keranjang
+        let existingItemIndex = cart.findIndex(
+          (item) => item.name === productItem.name,
+        );
+        if (existingItemIndex !== -1) {
+          cart[existingItemIndex].qty += productItem.qty;
+        } else {
+          cart.push(productItem);
+        }
+
+        // 5. Simpan kembali ke memory browser
+        localStorage.setItem("asteak_cart", JSON.stringify(cart));
+
+        // 6. Pindah halaman ke keranjang
+        window.location.href = "./cart.html";
+      }
+    </script>
+  </body>
 </html>

@@ -6,7 +6,7 @@
 }
 
 :root {
-  --primary-red: #a80000;
+  --primary-red: #b30000;
   --text-dark: #000;
   --text-light: #444;
   --bg-input: #d9d9d9;
@@ -40,6 +40,7 @@ ul {
 
 /* --- HEADER --- */
 header {
+  position: relative; /* Dipindah dari HTML */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,6 +52,12 @@ header {
 .logo-img {
   height: 35px;
   width: auto;
+}
+
+nav {
+  position: absolute; /* Dipindah dari HTML */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 nav ul {
@@ -75,6 +82,10 @@ nav ul {
   width: 200px;
 }
 
+.search-box i {
+  color: #888; /* Dipindah dari HTML */
+}
+
 .search-box input {
   border: none;
   background: transparent;
@@ -86,6 +97,7 @@ nav ul {
 }
 
 .cart-icon {
+  color: #b30000; /* Dipindah dari HTML */
   font-size: 20px;
   cursor: pointer;
 }
@@ -138,6 +150,12 @@ nav ul {
   color: #888;
 }
 
+/* Interaksi Input (Stroke Merah) dipindah dari tag <style> HTML */
+.input-group input:focus {
+  outline: 2px solid #b30000;
+  border-color: transparent;
+}
+
 /* Payment Method */
 .payment-title {
   margin-top: 50px;
@@ -167,14 +185,9 @@ nav ul {
   gap: 8px;
 }
 
-.font-qris {
-  font-family: Arial, sans-serif;
-  letter-spacing: 1px;
-}
-
 /* Custom Radio Button styling */
 .payment-option input[type="radio"] {
-  display: none; /* Sembunyikan radio button bawaan yang jelek */
+  display: none;
 }
 
 .custom-radio {
@@ -186,11 +199,20 @@ nav ul {
   position: relative;
 }
 
+/* Interaksi Kotak Payment (Stroke Merah) dipindah dari HTML */
+.payment-option:has(input[type="radio"]:checked) {
+  outline: 2px solid #b30000;
+}
+
+.payment-option input[type="radio"]:checked + .custom-radio {
+  border-color: #b30000 !important;
+}
+
 .payment-option input[type="radio"]:checked + .custom-radio::after {
   content: "";
   width: 10px;
   height: 10px;
-  background: #000;
+  background: #b30000 !important; /* Warna merah saat aktif */
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -199,6 +221,7 @@ nav ul {
 }
 
 /* --- KOLOM KANAN (SUMMARY) --- */
+
 .checkout-right {
   flex: 1;
 }
@@ -307,13 +330,66 @@ nav ul {
 }
 
 .btn-checkout-red:hover {
-  background-color: #8b0000;
+  background-color: #b30000;
 }
 
-/* --- RESPONSIVE DESIGN --- */
+/* 1. Tablet & Layar Menengah (Maksimal Lebar 992px) */
 @media (max-width: 992px) {
   .checkout-container {
     flex-direction: column;
     gap: 40px;
+  }
+}
+
+/* 2. Layar HP Menengah (Maksimal Lebar 768px) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  /* Mengembalikan posisi Nav dari absolute menjadi normal */
+  nav {
+    position: static;
+    transform: none;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .checkout-container {
+    padding: 0 20px;
+    margin: 30px auto;
+  }
+}
+
+/* 3. Layar HP Sangat Kecil (Maksimal Lebar 480px) */
+@media (max-width: 480px) {
+  .checkout-left h2 {
+    font-size: 26px;
+  }
+
+  /* Memperkecil gambar rincian barang agar tidak memakan ruang */
+  .item-img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .order-summary-box {
+    padding: 20px;
+  }
+
+  .item-details h4 {
+    font-size: 18px;
   }
 }

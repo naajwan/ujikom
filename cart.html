@@ -13,31 +13,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="cart.css" />
-    <style>
-      .coupon-input:focus {
-        outline: 2px solid #b30000;
-        border-color: transparent;
-      }
-      .cart-header .col-product,
-      .cart-header .col-price,
-      .cart-header .col-qty,
-      .cart-header .col-total {
-        font-size: 20px !important;
-      }
-      .empty-cart-msg {
-        text-align: center;
-        padding: 40px;
-        font-size: 18px;
-        color: #666;
-      }
-    </style>
   </head>
   <body>
-    <header style="position: relative">
-      <a href="#" class="logo-link"
-        ><img src="img/logo.png" alt="Logo A Steak" class="logo-img"
-      /></a>
-      <nav style="position: absolute; left: 50%; transform: translateX(-50%)">
+    <header>
+      <a href="#" class="logo-link">
+        <img src="img/logo.png" alt="Logo A Steak" class="logo-img" />
+      </a>
+      <nav>
         <ul>
           <li><a href="./index home.html">Home</a></li>
           <li><a href="./menu.html">Menu</a></li>
@@ -50,7 +32,7 @@
           <i class="fas fa-search"></i>
           <input type="text" placeholder="Search..." />
         </div>
-        <i class="fas fa-shopping-cart cart-icon" style="color: #b30000"></i>
+        <i class="fas fa-shopping-cart cart-icon"></i>
       </div>
     </header>
 
@@ -92,29 +74,29 @@
           <div class="summary-box">
             <h3>ORDER SUMARY</h3>
             <div class="summary-line">
-              <span class="lbl">ITEMS</span
-              ><span class="val total-items-val">0</span>
+              <span class="lbl">ITEMS</span>
+              <span class="val total-items-val">0</span>
             </div>
             <div class="summary-line">
-              <span class="lbl">SHIPPING</span
-              ><span class="val shipping-val">Rp 0</span>
+              <span class="lbl">SHIPPING</span>
+              <span class="val shipping-val">Rp 0</span>
             </div>
             <div class="summary-line">
-              <span class="lbl">SUBTOTAL</span
-              ><span class="val subtotal-val">Rp 0</span>
+              <span class="lbl">SUBTOTAL</span>
+              <span class="val subtotal-val">Rp 0</span>
             </div>
             <div class="summary-line">
-              <span class="lbl">COUPON PROMO</span
-              ><span class="val coupon-val">Rp 0</span>
+              <span class="lbl">COUPON PROMO</span>
+              <span class="val coupon-val">Rp 0</span>
             </div>
             <hr class="summary-divider" />
             <div class="summary-line total-line">
-              <span class="lbl">TOTAL</span
-              ><span class="val grand-total-val">Rp 0</span>
+              <span class="lbl">TOTAL</span>
+              <span class="val grand-total-val">Rp 0</span>
             </div>
-            <a href="./chekout.html"
-              ><button class="btn-checkout">GO TO CHECKOUT</button></a
-            >
+            <a href="./chekout.html">
+              <button class="btn-checkout">GO TO CHECKOUT</button>
+            </a>
           </div>
         </div>
       </div>
@@ -144,7 +126,6 @@
               subtotal += rowTotal;
               totalItems += item.qty;
 
-              // PERUBAHAN: Tombol plus dan minus dihapus, diganti langsung angka
               cartList.innerHTML += `
                 <div class="cart-item grid-row">
                   <div class="col-product">
@@ -157,7 +138,7 @@
                   </div>
                   <div class="col-price">Rp ${item.price.toLocaleString("id-ID")}</div>
                   <div class="col-qty">
-                    <span style="font-size: 16px; font-weight: 500;">${item.qty}</span>
+                    <span class="qty-text">${item.qty}</span>
                   </div>
                   <div class="col-total">Rp ${rowTotal.toLocaleString("id-ID")}</div>
                 </div>
@@ -192,7 +173,6 @@
           const index = e.target.closest("button")?.getAttribute("data-index");
           if (index === null || index === undefined) return;
 
-          // PERUBAHAN: Hanya menyisakan logika tombol hapus silang (X)
           if (e.target.closest(".remove-btn")) {
             cart.splice(index, 1); // Hapus barang dari array
           }

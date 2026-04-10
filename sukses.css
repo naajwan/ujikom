@@ -30,10 +30,9 @@ body {
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
-  /* GANTI URL DI BAWAH INI DENGAN GAMBAR MAKANAN ANDA */
   /* Menggunakan overlay rgba putih agak transparan agar teks terbaca jelas */
   background:
-    linear-gradient(rgba(240, 240, 240, 0.4), rgba(240, 240, 240, 0.4)),
+    linear-gradient(rgba(240, 240, 240, 0.2), rgba(240, 240, 240, 0.4)),
     url("img/dimsum.png") center/cover;
   overflow: hidden;
 }
@@ -84,6 +83,13 @@ body {
   gap: 12px;
 }
 
+/* Memastikan tag <a> tidak merusak ukuran tombol */
+.button-group a {
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
 .button-group button {
   width: 100%;
   padding: 14px;
@@ -102,7 +108,7 @@ body {
 }
 
 .btn-red:hover {
-  background-color: #b30000;
+  background-color: #b30000; /* Tambahan sedikit efek gelap saat dihover */
 }
 
 .btn-white {
@@ -113,5 +119,32 @@ body {
 }
 
 .btn-white:hover {
-  background-color: #ffffff;
+  background-color: #f9f9f9;
+}
+
+/* Layar HP (Maksimal Lebar 480px) */
+@media (max-width: 480px) {
+  .success-card {
+    padding: 40px 20px; /* Mengurangi padding samping agar isi teks tidak terlalu terjepit */
+  }
+
+  .success-card h2 {
+    font-size: 28px; /* Sedikit mengecilkan judul */
+  }
+
+  .icon-ring {
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+
+  .icon-circle {
+    width: 55px;
+    height: 55px;
+    font-size: 28px;
+  }
+
+  .button-group button {
+    font-size: 18px;
+    padding: 12px;
+  }
 }
